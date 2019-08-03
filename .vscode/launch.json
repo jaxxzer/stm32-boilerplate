@@ -1,0 +1,109 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "F030",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f0.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f0/STM32F0x0.svd",
+            "device": "STM32F030"
+        },
+        {
+            "name": "F103",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f1.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f1/STM32F103.svd",
+            "device": "STM32F103"
+        },
+        {
+            "name": "F303",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f3.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f3/STM32F303.svd",
+            "device": "STM32F303"
+        },
+        {
+            "name": "F042-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f0-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f0/STM32F0x2.svd",
+            "device": "STM32F042"
+        },
+        {
+            "name": "F072-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f0-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f0/STM32F0x2.svd",
+            "device": "STM32F072"
+        },
+        {
+            "name": "F103-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f1-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f1/STM32F103.svd",
+            "device": "STM32F103"
+        },
+        {
+            "name": "F303-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f3-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f3/STM32F303.svd",
+            "device": "STM32F303"
+        },
+        {
+            "name": "F334-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/f3-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32f3/STM32F3x4.svd",
+            "device": "STM32F334"
+        }
+    ]
+}

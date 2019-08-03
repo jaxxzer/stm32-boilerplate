@@ -1,0 +1,10 @@
+# check architecture, f0 etc..
+if(TARGET_MCU MATCHES "STM32F0.*")
+  include(${PROJECT_SOURCE_DIR}/src/target/f/f0.cmake)
+elseif(TARGET_MCU MATCHES "STM32F1.*")
+  include(${PROJECT_SOURCE_DIR}/src/target/f/f1.cmake)
+elseif(TARGET_MCU MATCHES "STM32F3.*")
+  include(${PROJECT_SOURCE_DIR}/src/target/f/f3.cmake)
+else()
+  message(ERROR "no support for TARGET_MCU ${TARGET_MCU}")
+endif()

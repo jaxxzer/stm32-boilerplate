@@ -1,0 +1,11 @@
+#pragma once
+
+#define LED_GPIO_RCC RCC_GPIOB
+#define LED_GPIO_PORT GPIOB
+#define LED_GPIO_PIN GPIO3
+
+#define ADC_PERIPH ADC1
+
+#define ADC_GPIO_RCC RCC_GPIOA
+#define ADC_GPIO_PORT GPIOA
+#define ADC_GPIO_PIN GPIO0
