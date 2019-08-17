@@ -21,3 +21,8 @@ set(RCC_SRC
 SET(TIMER_SRC
   ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/timer_common_all.c
 )
+
+SET(USART_SRC
+  ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/usart_common_all.c
+  ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/usart_common_v2.c
+)
