@@ -67,7 +67,7 @@ add_custom_command(TARGET ${EXE_NAME} POST_BUILD
 # 'make flash' to upload to board after compiling
 add_custom_target(flash
   # try stlink v2 first, then stlink v2-1 if that fails
-  openocd -f interface/stlink-v2.cfg -f ${OPENOCD_TARGET} -c "program debug.elf verify reset exit" ||
-  openocd -f interface/stlink-v2-1.cfg -f ${OPENOCD_TARGET} -c "program debug.elf verify reset exit"
+  openocd -f interface/stlink-v2.cfg -f ${OPENOCD_TARGET} -c "program ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXE_NAME} verify reset exit" ||
+  openocd -f interface/stlink-v2-1.cfg -f ${OPENOCD_TARGET} -c "program ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXE_NAME} verify reset exit"
   DEPENDS ${EXE_NAME}
 )
