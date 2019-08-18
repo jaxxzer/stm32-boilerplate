@@ -14,3 +14,9 @@
 
 #include <libopencm3/stm32/rcc.h>
 void initializeSystemClocks() { rcc_clock_setup_in_hsi_out_64mhz(); }
+
+#define BUTTON_GPIO_RCC RCC_GPIOA
+#define BUTTON_GPIO_PORT GPIOA
+#define BUTTON_GPIO_PIN GPIO0
+#define BUTTON_EXTI EXTI0
+#define BUTTON_EXTI_IRQ NVIC_EXTI0_IRQ

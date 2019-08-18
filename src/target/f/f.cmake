@@ -11,3 +11,11 @@ elseif(TARGET_MCU MATCHES "STM32F3.*")
 else()
   message(ERROR "no support for TARGET_MCU ${TARGET_MCU}")
 endif()
+
+set(NVIC_SRC
+  ${BOILERPLATE}/lib/libopencm3/lib/cm3/nvic.c
+)
+
+set(EXTI_SRC
+  ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/exti_common_all.c
+)
