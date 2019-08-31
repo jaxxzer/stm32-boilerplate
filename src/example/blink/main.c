@@ -4,7 +4,7 @@
 #include <libopencm3/stm32/rcc.h>
 
 int main() {
-  initializeSystemClocks();
+  //initializeSystemClocks();
   rcc_periph_clock_enable(LED_GPIO_RCC);
 
 #if defined(STM32F1)

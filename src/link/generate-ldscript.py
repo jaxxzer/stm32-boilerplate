@@ -43,10 +43,10 @@ productRamsizes = {
     "303": {
         "6": 16,
         "8": 16,
-        "B": 40,
-        "C": 40,
-        "D": 40,
-        "E": 64,
+        "B": 16,
+        "C": 16,
+        "D": 16,
+        "E": 16,
     },
     "334": {
         "6": 12,
@@ -63,12 +63,20 @@ productRamsizes = {
         "C": 16,
         "D": 16,
         "E": 16,
+    },
+    # we use sram1 only for boilerplate
+    # other sections are available like CCM (faster)
+    "431": {
+        "6": 16,
+        "8": 16,
+        "B": 80,
+        "C": 80,
+        "E": 80,
     }
 }
-# Stm32f051cX
-#stm32f030f4p6
-#4k ram 16kflash
-#stm32f051 <pincount><flash size><package><temperaturerange>
+
+# the last character: STM32F103C8
+# this is common across all products
 productFlashsizes = {
 
         "4": 16,
@@ -77,7 +85,7 @@ productFlashsizes = {
         "B": 128,
         "C": 256,
         "D": 384,
-        "E": 512,
+        "E": 128,
         "F": 768,
         "G": 1024,
 }
