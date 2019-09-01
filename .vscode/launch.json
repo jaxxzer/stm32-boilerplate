@@ -41,6 +41,20 @@
             "device": "STM32F303"
         },
         {
+            "name": "G071-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/g0-nucleo.cfg"
+            ],
+            // stm doesn't have g0 svd yet
+            "svdFile": "lib/svd/stm32f0/STM32F0x2.svd",
+            "device": "STM32F072"
+        },
+        {
             "name": "F042-nucleo",
             "cwd": "${workspaceRoot}",
             "executable": "build/debug.elf",
