@@ -43,7 +43,7 @@ void adc_setup() {
 
   rcc_periph_clock_enable(ADC_RCC);
 
-#if defined(STM32F3)
+#if defined(STM32F3) || defined(STM32G0)
   adc_enable_regulator(ADC_PERIPH);
   for (long i = 0; i < 10000; i++)
     asm("nop");
@@ -61,6 +61,8 @@ void adc_setup() {
   adc_calibrate(ADC_PERIPH);
   adc_power_on(ADC_PERIPH);
 #endif
+
+  adc_set_regular_sequence(ADC_PERIPH, 1, channel_array);
 }
 
 void led_setup() {
