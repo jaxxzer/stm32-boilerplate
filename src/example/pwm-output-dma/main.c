@@ -1,6 +1,7 @@
 #include <target-pwm.h>
 
 #include <libopencm3/stm32/dma.h>
+#include <libopencm3/stm32/g0/dmamux.h>
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/timer.h>
@@ -76,7 +77,12 @@ void setupDma() {
   dma_enable_memory_increment_mode(PWM_DMA, PWM_DMA_CHANNEL);                      // set MINC
   dma_set_number_of_data(PWM_DMA, PWM_DMA_CHANNEL, sizeof(pulses) / 2);            // set CNDTR
   dma_enable_circular_mode(PWM_DMA, PWM_DMA_CHANNEL);                              // set CIRC
-  dma_enable_channel(PWM_DMA, PWM_DMA_CHANNEL);                                    // set EN
+
+#if defined(STM32G0)
+  DMAMUX_CxCR(DMAMUX1, PWM_DMA_CHANNEL) |= PWM_DMAMUX_REQID;
+#endif
+
+  dma_enable_channel(PWM_DMA, PWM_DMA_CHANNEL); // set EN
 }
 
 int main() {
