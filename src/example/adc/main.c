@@ -47,7 +47,7 @@ void adc_setup() {
   adc_enable_regulator(ADC_PERIPH);
   for (long i = 0; i < 10000; i++)
     asm("nop");
-  adc_set_clk_prescale(ADC_PERIPH, ADC_CCR_CKMODE_DIV1);
+  adc_set_clk_prescale(ADC_PERIPH, ADC_CCR_PRESCALE);
 #endif
 
 #if defined(STM32F1)
