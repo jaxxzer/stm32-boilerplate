@@ -3,6 +3,7 @@
 #include "../nucleo/nucleo-64.h"
 
 #define ADC_RCC RCC_ADC12
+#define ADC_CCR_PRESCALE ADC_CCR_CKMODE_DIV1
 #define ADC_CHANNEL 1
 
 #define BUTTON_GPIO_RCC RCC_GPIOA
