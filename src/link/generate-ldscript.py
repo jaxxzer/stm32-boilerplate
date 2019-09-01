@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 
+productRamsizesG = {
+    "071": {
+        "8": 36,
+        "B": 36,
+    }
+}
+
 #stm32f0X0
-productRamsizes = {
+productRamsizesF = {
     "030": {
         "4": 4,
         "6": 4,
@@ -94,7 +101,10 @@ def productFlash(product):
     return productFlashsizes[product[-1]]
 
 def productRam(product):
-    ramsizes = productRamsizes[productFamily(product)]
+    if "STM32F" in product:
+        ramsizes = productRamsizesF[productFamily(product)]
+    elif "STM32G" in product:
+        ramsizes = productRamsizesG[productFamily(product)]
     return ramsizes[product[-1]]
 
 def ldScript(ram, flash):
