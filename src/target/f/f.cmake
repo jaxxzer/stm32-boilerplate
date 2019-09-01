@@ -4,6 +4,8 @@ endif()
 # check architecture, f0 etc..
 if(TARGET_MCU MATCHES "STM32F0.*")
   include(${BOILERPLATE}/src/target/f/f0.cmake)
+elseif(TARGET_MCU MATCHES "STM32G0.*")
+  include(${BOILERPLATE}/src/target/f/g0.cmake)
 elseif(TARGET_MCU MATCHES "STM32F1.*")
   include(${BOILERPLATE}/src/target/f/f1.cmake)
 elseif(TARGET_MCU MATCHES "STM32F3.*")

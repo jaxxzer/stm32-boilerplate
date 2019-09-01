@@ -7,6 +7,13 @@ if(TARGET_MCU MATCHES "STM32.*")
     set(IRQ_JSON ./include/libopencm3/stm32/f0/irq.json)
     # select libopencm3 target
     add_compile_definitions(STM32F0)
+  elseif(${TARGET_MCU} MATCHES "STM32G0.*")
+    set(TARGET_CPU "cortex-m0plus")
+    set(ARCH_FLAGS "-mcpu=cortex-m0plus -mthumb -mfpu=vfp")
+    set(OPENOCD_TARGET target/stm32g0x.cfg)
+    set(IRQ_JSON ./include/libopencm3/stm32/g0/irq.json)
+    # select libopencm3 target
+    add_definitions(-DSTM32G0)
   elseif(TARGET_MCU MATCHES "STM32F1.*")
     set(TARGET_CPU "cortex-m3")
     set(ARCH_FLAGS "-mcpu=cortex-m3 -mthumb -mfpu=vfp")
