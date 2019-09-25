@@ -54,9 +54,10 @@ void adc_setup() {
   adc_power_on(ADC_PERIPH);
   adc_enable_external_trigger_regular(ADC_PERIPH, ADC_CR2_EXTSEL_SWSTART);
   adc_enable_scan_mode(ADC_PERIPH);
-  adc_set_regular_sequence(ADC_PERIPH, 1, channel_array);
   adc_calibrate(ADC_PERIPH);
 #else
+
+  adc_set_regular_sequence(ADC_PERIPH, 1, channel_array);
   adc_calibrate(ADC_PERIPH);
   adc_power_on(ADC_PERIPH);
 #endif
