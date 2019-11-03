@@ -3,6 +3,10 @@ set(ADC_SRC
   ${BOILERPLATE}/lib/libopencm3/lib/stm32/f0/adc.c
 )
 
+set(DAC_SRC
+  ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/dac_common_all.c
+)
+
 set(DMA_SRC
   ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/dma_common_l1f013.c
 )
