@@ -113,10 +113,9 @@
             "type": "cortex-debug",
             "servertype": "openocd",
             "configFiles": [
-                "lib/openocd/f3-nucleo.cfg"
+                "lib/openocd/g4-nucleo.cfg"
             ],
-            "svdFile": "lib/svd/stm32f3/STM32F3x4.svd",
-            "device": "STM32F334"
+            "svdFile": "lib/svd/stm32g4/STM32G431xx.svd"
         }
     ]
 }
