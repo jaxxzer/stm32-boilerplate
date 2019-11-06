@@ -5,7 +5,7 @@
 
 int main() {
   //initializeSystemClocks();
-  // rcc_periph_clock_enable(LED_GPIO_RCC);
+  //rcc_periph_clock_enable(LED_GPIO_RCC);
   *(uint32_t*)0x4002104c |= 1;
 
 #if defined(STM32F1)

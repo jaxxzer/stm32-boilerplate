@@ -21,6 +21,13 @@ if(TARGET_MCU MATCHES "STM32.*")
     set(OPENOCD_TARGET target/stm32f3x.cfg)
     # select libopencm3 target
     add_compile_definitions(STM32F3)
+  elseif(TARGET_MCU MATCHES "STM32G4.*")
+    set(TARGET_CPU "cortex-m4")
+    set(ARCH_FLAGS "-mcpu=cortex-m4 -mthumb -mfpu=vfp")
+    set(IRQ_JSON ./include/libopencm3/stm32/g4/irq.json)
+    set(OPENOCD_TARGET target/stm32g4x.cfg)
+    # select libopencm3 target
+    add_compile_definitions(STM32G4)
   else()
     error("NO SUPPORT for STM32 target mcu: ${TARGET_MCU}")
   endif()
