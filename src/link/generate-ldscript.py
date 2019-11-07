@@ -74,6 +74,16 @@ productRamsizesF = {
         "C": 16,
         "D": 16,
         "E": 16,
+    },
+    # we use sram1 only for boilerplate
+    # other sections are available like CCM (faster)
+    # NOTE this is the 'G' series (as opposed to 'F')
+    "431": {
+        "6": 16,
+        "8": 16,
+        "B": 16,
+        "C": 80,
+        "E": 80,
     }
 }
 productRamsizesL = {
@@ -85,12 +95,9 @@ productRamsizesL = {
     }
 }
 
-# Stm32f051cX
-#stm32f030f4p6
-#4k ram 16kflash
-#stm32f051 <pincount><flash size><package><temperaturerange>
+# the last character: STM32F103C8
+# this is common across all products
 productFlashsizes = {
-
         "4": 16,
         "6": 32,
         "8": 64,
