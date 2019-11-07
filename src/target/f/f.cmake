@@ -13,7 +13,7 @@ elseif(TARGET_MCU MATCHES "STM32F3.*")
 elseif(TARGET_MCU MATCHES "STM32L4.*")
   include(${BOILERPLATE}/src/target/f/l4.cmake)
 else()
-  message(ERROR "no support for TARGET_MCU ${TARGET_MCU}")
+  message("!!! ERROR no support for TARGET_MCU ${TARGET_MCU} !!!")
 endif()
 
 set(NVIC_SRC
