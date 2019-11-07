@@ -4,6 +4,16 @@ productRamsizesG = {
     "071": {
         "8": 36,
         "B": 36,
+    },
+    # we use sram1 only for boilerplate
+    # other sections are available like CCM (faster)
+    # NOTE this is the 'G' series (as opposed to 'F')
+    "431": {
+        "6": 16,
+        "8": 16,
+        "B": 16,
+        "C": 80,
+        "E": 80,
     }
 }
 
@@ -75,16 +85,6 @@ productRamsizesF = {
         "D": 16,
         "E": 16,
     },
-    # we use sram1 only for boilerplate
-    # other sections are available like CCM (faster)
-    # NOTE this is the 'G' series (as opposed to 'F')
-    "431": {
-        "6": 16,
-        "8": 16,
-        "B": 16,
-        "C": 80,
-        "E": 80,
-    }
 }
 productRamsizesL = {
     "476": {
