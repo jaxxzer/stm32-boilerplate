@@ -1,5 +1,4 @@
-arm8
+arm9
 build
 src/link/stm32-mem.ld
 stm32-boilerplate-examples.tar
-
