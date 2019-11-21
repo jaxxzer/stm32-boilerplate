@@ -83,6 +83,10 @@ void setupDma() {
   DMAMUX_CxCR(DMAMUX1, PWM_DMA_CHANNEL) = PWM_DMAMUX_REQID;
 #endif
 
+#if defined(STM32L4)
+  dma_set_channel_request(PWM_DMA, PWM_DMA_CHANNEL, PWM_DMA_CSEL);
+#endif
+
   dma_enable_channel(PWM_DMA, PWM_DMA_CHANNEL); // set EN
 }
 
