@@ -76,6 +76,15 @@ productRamsizesF = {
         "E": 16,
     }
 }
+productRamsizesL = {
+    "476": {
+        # 96k SRAM1 + 32k SRAM2 (128k total)
+        "C": 96,
+        "E": 96,
+        "G": 96,
+    }
+}
+
 # Stm32f051cX
 #stm32f030f4p6
 #4k ram 16kflash
@@ -105,6 +114,8 @@ def productRam(product):
         ramsizes = productRamsizesF[productFamily(product)]
     elif "STM32G" in product:
         ramsizes = productRamsizesG[productFamily(product)]
+    elif "STM32L" in product:
+        ramsizes = productRamsizesL[productFamily(product)]
     return ramsizes[product[-1]]
 
 def ldScript(ram, flash):
