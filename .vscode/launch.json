@@ -118,6 +118,18 @@
             ],
             "svdFile": "lib/svd/stm32f3/STM32F3x4.svd",
             "device": "STM32F334"
+        },
+        {
+            "name": "L476-nucleo",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/debug.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "lib/openocd/l4-nucleo.cfg"
+            ],
+            "svdFile": "lib/svd/stm32l4/STM32L4x6.svd"
         }
     ]
 }
