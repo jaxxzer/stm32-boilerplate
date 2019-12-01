@@ -15,7 +15,7 @@ do
     do
         echob "selecting EXAMPLE: ${EXAMPLE}"
         test cmake --configure -DTARGET_BOARD=${TARGET_BOARD} -DEXAMPLE=${EXAMPLE} ..
-        test make
+        test make -j$(nproc)
     done
 done
 popd
