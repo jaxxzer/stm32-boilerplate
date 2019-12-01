@@ -43,7 +43,7 @@ void adc_setup() {
 
   rcc_periph_clock_enable(ADC_RCC);
 
-#if defined(STM32F3) || defined(STM32G0)
+#if defined(STM32F3) || defined(STM32G0) || defined(STM32G4)
   adc_enable_regulator(ADC_PERIPH);
   for (long i = 0; i < 10000; i++)
     asm("nop");
