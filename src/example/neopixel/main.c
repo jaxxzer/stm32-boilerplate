@@ -5,7 +5,7 @@
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/timer.h>
 
-#if defined(STM32G0)
+#if defined(STM32G0) || defined(STM32G4)
 #include <libopencm3/stm32/g0/dmamux.h>
 #endif
 
@@ -73,11 +73,6 @@ void setupDma() {
   dma_set_peripheral_size(PWM_DMA, PWM_DMA_CHANNEL, PWM_DMA_PERIPH_SIZE);          // set PSIZE
   dma_enable_memory_increment_mode(PWM_DMA, PWM_DMA_CHANNEL);                      // set MINC
   dma_set_number_of_data(PWM_DMA, PWM_DMA_CHANNEL, sizeof(pulses) / 2);            // set CNDTR
-
-  // #if defined(STM32G4)
-  //   enable rcc peripheral clock for dmamux
-  //   *(uint32_t*)0x40021048 |= 0b100;
-  // #endif
 
 #if defined(STM32G0) || defined(STM32G4)
   DMAMUX_CxCR(DMAMUX1, PWM_DMA_CHANNEL) = PWM_DMAMUX_REQID;
