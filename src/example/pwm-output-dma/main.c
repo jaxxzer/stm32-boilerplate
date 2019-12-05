@@ -30,13 +30,11 @@ const uint16_t psc = 19; // prescaler
 
 // pulse widths, in timer counts
 // minimum is 0x8 when dma clock speed == timer clock speed (oddly, 0x3 works correctly too!)
-const uint16_t bit_0      = 0x10;
-const uint16_t bit_1      = 2 * bit_0;
-const uint16_t bit_period = 3 * bit_0; // symbol duration
+const uint16_t bit_0      = 0;
+const uint16_t bit_1      = 101;
+const uint16_t bit_period = 100; // symbol duration
 
-const uint16_t pulses[] = {
-    bit_1, bit_0, bit_1, bit_0, bit_0,
-};
+const uint16_t pulses[] = {bit_0, bit_1, bit_0, bit_1, bit_0, bit_0, bit_1, bit_1};
 
 void setupGpio() {
   rcc_periph_clock_enable(PWM_GPIO_RCC);
@@ -59,8 +57,8 @@ void setupTimer() {
   timer_set_prescaler(PWM_TIMER, psc);
   timer_set_period(PWM_TIMER, bit_period);                     // set ARR
   timer_set_oc_mode(PWM_TIMER, PWM_TIMER_OC_ID, TIM_OCM_PWM1); // set OCM
-  timer_enable_oc_preload(PWM_TIMER, PWM_TIMER_OC_ID);         // set OCPE
-  timer_enable_oc_output(PWM_TIMER, PWM_TIMER_OC_ID);          // set CCxE
+  // timer_enable_oc_preload(PWM_TIMER, PWM_TIMER_OC_ID);         // set OCPE
+  timer_enable_oc_output(PWM_TIMER, PWM_TIMER_OC_ID); // set CCxE
   // shouldn't do/be part of normal timer api (this only applies to advanced control timers)?
   timer_enable_break_main_output(PWM_TIMER);
   timer_enable_irq(PWM_TIMER, PWM_DMA_REQUEST); // set CCxDE (enable dma request on CCx event)
