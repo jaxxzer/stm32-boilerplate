@@ -56,8 +56,6 @@ void adc_setup() {
   adc_enable_scan_mode(ADC_PERIPH);
   adc_calibrate(ADC_PERIPH);
 #else
-
-  adc_set_regular_sequence(ADC_PERIPH, 1, channel_array);
   adc_calibrate(ADC_PERIPH);
   adc_power_on(ADC_PERIPH);
 #endif
