@@ -60,9 +60,6 @@ void adc_setup() {
   adc_set_regular_sequence(ADC_PERIPH, 1, channel_array);
   adc_set_continuous_conversion_mode(ADC_PERIPH);
   ADC_CFGR1(ADC_PERIPH) |= ADC_CFGR1_OVRMOD;
-
-  for (long i = 0; i < 10000; i++)
-    asm("nop");
 }
 
 void led_setup() {
@@ -75,7 +72,7 @@ void opamp_setup() {
   rcc_periph_clock_enable(RCC_SYSCFG);
 
   // select pga mode on inverting input
-  OPAMP_CSR(OPAMP1) |= OPAMP_CSR_VM_SEL_PGA;
+  OPAMP1_CSR |= OPAMP_CSR_VM_SEL_PGA;
   // non inverting gain = 2
   OPAMP1_CSR |= (0b00000 << OPAMP_CSR_PGA_GAIN_SHIFT);
   // connect opamp vp to VINP0 signal
