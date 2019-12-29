@@ -14,8 +14,9 @@ do
     for EXAMPLE in $(ls ../src/example)
     do
         echob "selecting EXAMPLE: ${EXAMPLE}"
-        test cmake --configure -DTARGET_BOARD=${TARGET_BOARD} -DEXAMPLE=${EXAMPLE} ..
-        test make -j$(nproc)
+        if cmake --configure -DTARGET_BOARD=${TARGET_BOARD} -DEXAMPLE=${EXAMPLE} ..; then
+            test make -j$(nproc)
+        fi
     done
 done
 popd
