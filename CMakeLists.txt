@@ -15,12 +15,6 @@ if(NOT DEFINED TARGET_BOARD)
   message("no TARGET_BOARD defined, using ${TARGET_BOARD}")
 endif()
 
-# example program
-if(NOT DEFINED EXAMPLE)
-  set(EXAMPLE "blink")
-  message("no EXAMPLE defined, using ${EXAMPLE}")
-endif()
-
 # target board directory
 set(TARGET_DIR "${PROJECT_SOURCE_DIR}/src/target/${TARGET_BOARD}")
 
@@ -42,8 +36,26 @@ message("TARGET_CPU: ${TARGET_CPU}")
 
 include_directories(${PROJECT_SOURCE_DIR}/lib/libopencm3/include)
 
+# example program
+if(NOT DEFINED EXAMPLE)
+  set(EXAMPLE "blink")
+  message("no EXAMPLE defined, using ${EXAMPLE}")
+endif()
+
 # include example sources
 include(${PROJECT_SOURCE_DIR}/src/example/${EXAMPLE}/CMakeLists.txt)
+
+message(STATUS "BONUS_HARDWARE=${BONUS_HARDWARE}")
+if(HARDWARE_REQUIREMENTS)
+  foreach(REQUIREMENT ${HARDWARE_REQUIREMENTS})
+    message(STATUS "REQUIREMENT=${REQUIREMENT}")
+    if(${REQUIREMENT} IN_LIST BONUS_HARDWARE)
+      message(STATUS "REQUIREMENT ${REQUIREMENT} FOUND IN ${BONUS_HARDWARE}")
+    else()
+      message(FATAL_ERROR "REQUIREMENT ${REQUIREMENT} NOT FOUND IN ${BONUS_HARDWARE}")
+    endif()
+  endforeach()
+endif()
 
 set(CMAKE_C_FLAGS "${COMPILER_FLAGS} ${ARCH_FLAGS}")
 set(CMAKE_CXX_FLAGS "${COMPILER_FLAGS} ${ARCH_FLAGS}")
