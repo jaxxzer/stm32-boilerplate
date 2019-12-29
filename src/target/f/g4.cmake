@@ -27,3 +27,7 @@ SET(USART_SRC
   ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/usart_common_all.c
   ${BOILERPLATE}/lib/libopencm3/lib/stm32/common/usart_common_v2.c
 )
+
+SET(BONUS_HARDWARE
+  OPAMP_INTERNAL
+)
